@@ -134,7 +134,7 @@ static async toggleTaskStatus(req: Request, res: Response): Promise<void> {
       return;
     }
 
-    // ✅ Devolver directamente la tarea (sin wrapper)
+    //  Devolver directamente la tarea (sin wrapper)
     res.json(updatedTask);
     
   } catch (error) {
