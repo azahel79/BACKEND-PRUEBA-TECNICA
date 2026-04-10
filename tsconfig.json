@@ -1,34 +1,15 @@
 {
   "compilerOptions": {
-    // Environment Settings
-    "module": "NodeNext", // Permite el uso de ESM correctamente en Node
-    "moduleResolution": "NodeNext", // Necesario cuando usas NodeNext en module
     "target": "ESNext",
-    "lib": ["ESNext"],
-    "types": ["node"],
-    "esModuleInterop": true, // <--- ESTO ES VITAL para importar Express sin errores
-
-    // File Layout
-    "rootDir": "./src",
+    "module": "NodeNext", 
+    "moduleResolution": "NodeNext",
     "outDir": "./dist",
-
-    // Other Outputs
-    "sourceMap": true,
-    "declaration": true,
-    "declarationMap": true,
-
-    // Stricter Typechecking Options
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
-
-    // Recommended Options
+    "rootDir": "./src",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
     "strict": true,
-    "verbatimModuleSyntax": true,
-    "isolatedModules": true,
-    "noUncheckedSideEffectImports": true,
-    "moduleDetection": "force",
-    "skipLibCheck": true
+    "forceConsistentCasingInFileNames": true
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "dist"]
 }
