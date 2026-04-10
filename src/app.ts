@@ -40,18 +40,22 @@ app.use(errorHandler);
 // Conectar a la base de datos
 connectDB();
 
-const PORT = process.env.PORT || 3000;
-const server = app.listen(PORT, () => {
-  console.log(` Servidor corriendo en http://localhost:${PORT}`);
-  console.log(`API de tareas disponible en http://localhost:${PORT}/api/tasks`);
+// Forzamos a que PORT sea un número usando Number()
+const PORT = Number(process.env.PORT) || 10000;
+
+// 1. Asignamos app.listen a la variable 'server' para que 'server.close' funcione
+// 2. Al ser PORT un número claro, el error de "overload" desaparece
+const server = app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
 
 // Manejo de cierre graceful
 process.on('SIGTERM', () => {
-  server.close(() => {
-    console.log('Servidor cerrado');
-    process.exit(0);
-  });
+    server.close(() => {
+        console.log('Servidor cerrado');
+        process.exit(0);
+    });
 });
+
 
 export default app;
